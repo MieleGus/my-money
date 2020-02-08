@@ -23,7 +23,7 @@ const reducer = (state, action) => {
   }
 
   const useGet = url => {
-    const [data, dispatch] = useReducer(reducer, {
+    const [data, dispatch] = useReducer(reducer, { 
       loading: true,
       data: {}
     })
