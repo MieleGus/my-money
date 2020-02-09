@@ -39,7 +39,7 @@ const init = baseURL => {
         return data
     }
 
-    const usePost = (resource) => {
+    const usePost = resource => {
         const [data, dispatch] = useReducer(reducer, INITIAL_STATE)
           const post = data => {
             dispatch({ type: 'REQUEST' })
