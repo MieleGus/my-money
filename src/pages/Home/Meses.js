@@ -33,7 +33,7 @@ const Meses = () => {
                                 <td>{data.data[mes].previsao_entrada}</td>
                                 <td>{data.data[mes].entrada}</td>
                                 <td>{data.data[mes].previsao_saida}</td>
-                                <td>{data.data[mes].saida}</td>
+                                <td>{data.data[mes].saidas}</td>
                             </tr>
                         )
                     })
