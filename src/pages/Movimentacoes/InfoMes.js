@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMesApi, useMovimentacaoApi } from '../../api'
 
-const Infomes = ({ data }) => {
+const InfoMes = ({ data }) => {
     const {infoMes, alterarMes } = useMesApi(data)
     const alterarPrevisaoEntrada = (evt) => {
      alterarMes({ previsao_entrada: evt.target.value })
