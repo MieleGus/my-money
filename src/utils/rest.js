@@ -29,7 +29,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         loading: false,
-        data: action.error
+        error: action.error,
+        code: action.code
       }
     }
     return state
@@ -42,7 +43,7 @@ const init = baseURL => {
             dispatch({ type: 'REQUEST' })
             const res = await axios.get(baseURL + resource + '.json')
             if(res.data.error && Object.keys(res.data.error).length > 0) {
-              dispatch({ type: 'FAILURE', error: res.data.error.message })
+              dispatch({ type: 'FAILURE', error: res.data.error })
             }else {
               dispatch({ type: 'SUCCESS', data: res.data })
             }            
@@ -86,9 +87,9 @@ const init = baseURL => {
           }
           return [data, remove]
     }
-    const usePatch = () => {
+    const usePatch = (resource) => {
       const [data, dispatch] = useReducer(reducer, INITIAL_STATE)
-        const patch = async(resource, data)  => {
+        const patch = async(data)  => {
           dispatch({ type: 'REQUEST' })
           await axios
             .path(baseURL + resource + '.json', data)
